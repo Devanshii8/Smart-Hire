@@ -1,0 +1,12 @@
+# Local environment
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Data & Resumes
+data/resumes/
+samples/
+
+# Streamlit
+.streamlit/
