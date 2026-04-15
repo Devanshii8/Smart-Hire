@@ -71,4 +71,5 @@ class WorkflowState(TypedDict):
     candidates: List[CandidateProfile]
     match_results: List[MatchResult]
     email_logs: List[Dict[str, str]]
+    shortlist_threshold: float
     error: Optional[str]

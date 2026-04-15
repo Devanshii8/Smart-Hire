@@ -18,6 +18,7 @@ if "workflow_state" not in st.session_state:
         "candidates": [],
         "match_results": [],
         "email_logs": [],
+        "shortlist_threshold": 0.6,
         "error": None
     }
 
@@ -50,6 +51,12 @@ with st.sidebar:
     elif llm_provider == "Ollama":
         st.text_input("Ollama Base URL", value=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"), key="ollama_url")
         st.info("Self-hosted local inference")
+
+    st.divider()
+    st.header("Ranking Settings")
+    threshold_pct = st.slider("Shortlisting Cutoff (%)", 0, 100, int(st.session_state.workflow_state["shortlist_threshold"] * 100))
+    st.session_state.workflow_state["shortlist_threshold"] = threshold_pct / 100.0
+    st.info(f"Candidates with scores >= {threshold_pct}% will be Shortlisted.")
 
     st.divider()
 

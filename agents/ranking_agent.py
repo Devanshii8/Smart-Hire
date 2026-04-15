@@ -37,6 +37,7 @@ def rank_node(state: WorkflowState) -> dict:
     match_results.sort(key=lambda x: x.final_score, reverse=True)
 
     # 3. Apply threshold & explain top candidates
+    threshold = state.get("shortlist_threshold", SHORTLIST_THRESHOLD)
     llm = get_llm()
     prompt = PromptTemplate(template=EXPLAIN_MATCH_PROMPT, 
                           input_variables=["jd_title", "jd_keywords", "jd_experience",
@@ -44,7 +45,7 @@ def rank_node(state: WorkflowState) -> dict:
     chain = prompt | llm
 
     for mr in match_results:
-        if mr.final_score >= SHORTLIST_THRESHOLD:
+        if mr.final_score >= threshold:
             mr.status = "Shortlisted"
             mr.reason = f"Met threshold ({mr.final_score*100:.1f}%)"
             
