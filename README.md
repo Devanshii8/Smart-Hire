@@ -1,4 +1,4 @@
-# 🚀 SmartHire AI: Intelligent Applicant Tracking System
+#  SmartHire AI: Intelligent Applicant Tracking System
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
@@ -13,18 +13,18 @@
 
 ---
 
-## 🎓 Academic Group Project
+##  Academic Group Project
 
 This project was developed as a comprehensive academic group assignment under the esteemed guidance of **Dr. Arpit Khandelwal**. 
 
-### 👥 Team Members
+###  Team Members
 * **Devanshi Gupta**
 * **Tanisha**
 * **Aastha**
 
 ---
 
-## 🎯 Overview
+##  Overview
 **SmartHire AI** is an end-to-end Applicant Tracking System (ATS) built to automate and optimize the resume screening process. Utilizing state-of-the-art Large Language Models and mathematically robust Vector Search engines, our system aims to eliminate human bias and drastically reduce the time it takes HR professionals to filter and analyze job applicants.
 
 By leveraging specialized AI agents (via Google Gemini) and mathematical Vector Matching (HuggingFace + FAISS), the application:
@@ -35,7 +35,7 @@ By leveraging specialized AI agents (via Google Gemini) and mathematical Vector 
 
 ---
 
-## ⚙️ Features
+##  Features
 * **Resume Parsing & Semantics:** Deep analysis of incoming PDF resumes instead of simple keyword matching.
 * **Intelligent Ranking Dashboard:** Candidates are visually ranked against job requirements with specific granular scores.
 * **Decision Transparency:** The LLM explains *why* a candidate was ranked highly or poorly.
@@ -44,7 +44,7 @@ By leveraging specialized AI agents (via Google Gemini) and mathematical Vector 
 
 ---
 
-## 🔧 Installation & Setup
+##  Installation & Setup
 
 Follow these steps to safely set up this application locally.
 
@@ -89,23 +89,9 @@ Ensure you are in the project root directory and the virtual environment is acti
 ```bash
 streamlit run app.py
 ```
-> **⚠️ First-Run Initialization:** The first resume upload processes takes ~15-30 extra seconds to cache the HuggingFace semantic models locally (80MB). Subsequent processing is instantaneous!
+> ** First-Run Initialization:** The first resume upload processes takes ~15-30 extra seconds to cache the HuggingFace semantic models locally (80MB). Subsequent processing is instantaneous!
+
+
 
 ---
-
-## ☁️ Streamlit Cloud Deployment
-
-Want to host this securely online? 
-
-1. Ensure the repository is publicly accessible on your GitHub account.
-2. Go to [share.streamlit.io](https://share.streamlit.io/).
-3. Click **Create App** → Link your `app.py` location and this repository.
-4. Go to **Advanced Settings / Secrets** and paste your `.env` formatting there:
-   ```toml
-   GOOGLE_API_KEY="your_api_key"
-   SMTP_EMAIL="email@gmail.com"
-   ```
-5. Click deploy and your app will be live globally!
-
----
-*Developed with ❤️ as part of our academic commitment to exploring AI automation paradigms.*
+*Developed with as part of our academic commitment to exploring AI automation paradigms.*
