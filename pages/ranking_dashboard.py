@@ -58,7 +58,7 @@ if filtered_results:
     with c2:
         if st.button("Send Invitations", disabled=not confirm_send, type="primary", use_container_width=True):
             if not check_email_config():
-                st.error("SMTP Configuration missing. Please check your .env file.")
+                st.error("SMTP Configuration missing. Please check your Streamlit Secrets or .env file.")
             else:
                 sent_count = 0
                 shortlisted = [r for r in filtered_results if r.status == "Shortlisted"]

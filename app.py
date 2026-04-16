@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+from utils.constants import get_secret_or_env
 
 # Global configuration
 st.set_page_config(
@@ -27,7 +28,7 @@ with st.sidebar:
     st.header("Model Settings")
     
     # Provider Selection
-    current_provider = os.getenv("LLM_PROVIDER", "gemini").lower()
+    current_provider = get_secret_or_env("LLM_PROVIDER", "gemini").lower()
     provider_options = ["Gemini", "Groq", "Ollama"]
     provider_index = 0
     if current_provider in [p.lower() for p in provider_options]:
@@ -37,19 +38,19 @@ with st.sidebar:
     os.environ["LLM_PROVIDER"] = llm_provider.lower()
     
     if llm_provider == "Gemini":
-        gemini_key = st.text_input("Google API Key", value=os.getenv("GOOGLE_API_KEY", ""), type="password")
+        gemini_key = st.text_input("Google API Key", value=get_secret_or_env("GOOGLE_API_KEY", ""), type="password")
         if gemini_key:
             os.environ["GOOGLE_API_KEY"] = gemini_key
         st.info("Limit: 15 Requests per minute")
             
     elif llm_provider == "Groq":
-        groq_key = st.text_input("Groq API Key", value=os.getenv("GROQ_API_KEY", ""), type="password")
+        groq_key = st.text_input("Groq API Key", value=get_secret_or_env("GROQ_API_KEY", ""), type="password")
         if groq_key:
             os.environ["GROQ_API_KEY"] = groq_key
         st.info("High-speed inference provider")
 
     elif llm_provider == "Ollama":
-        st.text_input("Ollama Base URL", value=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"), key="ollama_url")
+        st.text_input("Ollama Base URL", value=get_secret_or_env("OLLAMA_BASE_URL", "http://localhost:11434"), key="ollama_url")
         st.info("Self-hosted local inference")
 
     st.divider()
