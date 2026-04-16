@@ -5,6 +5,10 @@
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white"/>
   <img src="https://img.shields.io/badge/FAISS-1E88E5?style=for-the-badge&logo=Meta&logoColor=white"/>
   <img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white"/>
+  <br/><br/>
+  <a href="https://smart-hire-project.streamlit.app/">
+    <img src="https://img.shields.io/badge/Live_App-Launch_Web_Application-success?style=for-the-badge&logo=streamlit" alt="Live App Link">
+  </a>
 </div>
 
 ---
