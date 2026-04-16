@@ -1,106 +1,107 @@
-# SmartHire AI
+# 🚀 SmartHire AI: Intelligent Applicant Tracking System
 
-An end-to-end AI Applicant Tracking System built with Python, Streamlit, LangGraph, and FAISS.
-
-## Overview
-This application completely automates the resume screening process. It uses specialized AI agents (via Google Gemini) to parse Job Descriptions and unstructured PDF resumes. It then uses a mathematical Vector Matching engine (HuggingFace + FAISS) to calculate how well candidates match the required skills, experience, and education. It handles automated ranking, explains its AI decisions, and can even automatically send acceptance/rejection emails via SMTP.
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white"/>
+  <img src="https://img.shields.io/badge/FAISS-1E88E5?style=for-the-badge&logo=Meta&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=google&logoColor=white"/>
+</div>
 
 ---
 
-## 🚀 How to Setup and Run This Application (Handover Guide)
+## 🎓 Academic Group Project
 
-Follow these exact steps to set up this application on a new PC. 
+This project was developed as a comprehensive academic group assignment under the esteemed guidance of **Dr. Arpit Khandelwal**. 
+
+### 👥 Team Members
+* **Devanshi Gupta**
+* **Tanisha**
+* **Aastha**
+
+---
+
+## 🎯 Overview
+**SmartHire AI** is an end-to-end Applicant Tracking System (ATS) built to automate and optimize the resume screening process. Utilizing state-of-the-art Large Language Models and mathematically robust Vector Search engines, our system aims to eliminate human bias and drastically reduce the time it takes HR professionals to filter and analyze job applicants.
+
+By leveraging specialized AI agents (via Google Gemini) and mathematical Vector Matching (HuggingFace + FAISS), the application:
+- Intelligently parses Job Descriptions alongside unstructured PDF resumes.
+- Automatically calculates and scores candidate compatibility based on skills, experience, and educational background.
+- Presents actionable insights and AI-driven transparent reasoning for its hiring decisions.
+- Facilitates the next stage by dispatching automated acceptance/rejection pipeline emails directly to candidates.
+
+---
+
+## ⚙️ Features
+* **Resume Parsing & Semantics:** Deep analysis of incoming PDF resumes instead of simple keyword matching.
+* **Intelligent Ranking Dashboard:** Candidates are visually ranked against job requirements with specific granular scores.
+* **Decision Transparency:** The LLM explains *why* a candidate was ranked highly or poorly.
+* **Automated SMTP Integration:** Directly invite top talent to interviews through our seamless one-click email service.
+* **Cross-Provider Architecture:** Built to flexibly utilize Google Gemini, Groq, or Local Ollama models natively.
+
+---
+
+## 🔧 Installation & Setup
+
+Follow these steps to safely set up this application locally.
 
 ### Prerequisites
-1. Ensure **Python 3.10+** is installed on your computer.
-2. Ensure you have a **Code Editor** (like VS Code) installed.
-3. You need to gather your own free AI API keys (detailed below).
+1. **Python 3.10+** installed on your system.
+2. A Free API Key from [Google AI Studio](https://aistudio.google.com/).
 
 ### Step 1: Clone the Repository
-Open your Terminal or Command Prompt and clone (download) the code from Github to your machine:
 ```bash
-git clone https://github.com/PrinceKumarIITJ/SmartHire-AI.git
-cd SmartHire-AI
+git clone https://github.com/Devanshii8/Smart-Hire.git
+cd Smart-Hire
 ```
 
-### Step 2: Set Up API Keys
-The system requires an API key to communicate with the Google Gemini AI.
-1. Go to [Google AI Studio](https://aistudio.google.com/) and generate a free API key.
-2. Inside the `SmartHire-AI` folder, locate the file named `.env.example`.
-3. Create a copy of this file and rename the copy to strictly `.env`.
-4. Open the new `.env` file in your editor and paste your Google key exactly like this:
-   `GOOGLE_API_KEY=your_copied_key_here`
-5. *(Optional but Recommended)* If you want the system to send automatic interview and rejection emails, fill out the `SMTP_EMAIL` and `SMTP_PASSWORD` fields. (You will need to generate an App Password from your Google Account settings).
+### Step 2: Environment Configuration
+Create a file named `.env` in the root folder of the project containing your API keys and (optionally) your SMTP configurations to automate emails.
+```env
+GOOGLE_API_KEY=your_copied_key_here
+SMTP_EMAIL=your_email@gmail.com
+SMTP_PASSWORD=your_app_password
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+HR_COMPANY_NAME=SmartHire AI Inc.
+```
+*(Note for SMTP: If using Gmail, you must generate an "App Password" from your Google Security Settings, not your primary password).*
 
-### Step 3: Local Installation
-It is highly recommended to install the libraries in an isolated virtual environment to prevent messing up your PC's general Python setup.
-
-Run the following commands in your terminal inside the `SmartHire-AI` folder:
-
-**1. Create a safe Python environment:**
+### Step 3: Launch Local Environment
+We highly recommend running this within a virtual environment.
 ```bash
+# 1. Create the Environment
 python -m venv venv
-```
 
-**2. Activate the environment:**
-*If you are using Windows:*
-```bash
-venv\\Scripts\\activate
-```
-*If you are using Mac/Linux:*
-```bash
-source venv/bin/activate
-```
+# 2. Activate It
+venv\Scripts\activate      # Windows
+source venv/bin/activate    # Mac/Linux
 
-**3. Install the dependencies:**
-```bash
+# 3. Install Dependencies
 pip install -r requirements.txt
 ```
-*(Note: This might take a few minutes as it downloads heavy machine-learning libraries. Proceed to the next step once you regain terminal control).*
 
-### Step 4: Run the Application!
-Once installation is complete, launch the web dashboard by typing:
+### Step 4: Start the Server!
+Ensure you are in the project root directory and the virtual environment is active, then run:
 ```bash
 streamlit run app.py
 ```
-Your default web browser will automatically open a new tab containing the **SmartHire AI** interface!
-
-> ⚠️ **Important First-Run Note:** The very first time you process a batch of resumes, it will take an extra 10-30 seconds. The system has to download a local HuggingFace mathematics model (`all-MiniLM-L6-v2`, ~80MB) directly to your PC cache. Every execution after this will be instantaneous and completely offline.
+> **⚠️ First-Run Initialization:** The first resume upload processes takes ~15-30 extra seconds to cache the HuggingFace semantic models locally (80MB). Subsequent processing is instantaneous!
 
 ---
 
-## 🌍 Step 5: Free Cloud Deployment (Streamlit Community Cloud)
+## ☁️ Streamlit Cloud Deployment
 
-If you want to host this application securely on the internet so that anyone with a link can use it (without downloading code), follow these steps:
+Want to host this securely online? 
 
-1. **Fork/Upload to your own GitHub Account:**
-   - Make sure this exact code repository is pushed to your personal GitHub account. Make sure it is marked as **Public** (otherwise you might run into private repo limits).
-   - Ensure your `.env` file is NOT in the Github repository! Only `.env.example` should be there.
+1. Ensure the repository is publicly accessible on your GitHub account.
+2. Go to [share.streamlit.io](https://share.streamlit.io/).
+3. Click **Create App** → Link your `app.py` location and this repository.
+4. Go to **Advanced Settings / Secrets** and paste your `.env` formatting there:
+   ```toml
+   GOOGLE_API_KEY="your_api_key"
+   SMTP_EMAIL="email@gmail.com"
+   ```
+5. Click deploy and your app will be live globally!
 
-2. **Sign up for Streamlit Cloud:**
-   - Go to [share.streamlit.io](https://share.streamlit.io/) and click "Continue with GitHub" to log in.
-
-3. **Deploy the App:**
-   - Once logged in, click the **"Create app"** button.
-   - Choose **"Yup, I have an app"**.
-   - In the form:
-     - **Repository**: Select your `SmartHire-AI` repository.
-     - **Branch**: `main`
-     - **Main file path**: `app.py`
-   - Click **"Deploy!"** but quickly prepare for the next step.
-
-4. **Add your SECRETS (Crucial Step):**
-   - The app will try to deploy but will crash initially because the cloud server does not have your Google API Key.
-   - In the lower-right corner of the Streamlit dashboard, click **Manage App** -> **Settings (the three dots ⋮)** -> **Settings**.
-   - Go to the **Secrets** tab.
-   - Paste the contents of your `.env` file here exactly as it is formatted locally. For example:
-     ```toml
-     GOOGLE_API_KEY="your_api_key_here"
-     SMTP_EMAIL="your_email@gmail.com"
-     SMTP_PASSWORD="your_app_password"
-     ```
-   - Click **Save**. The app will immediately reboot using those secret keys.
-
-5. **Share it!**
-   - Streamlit Cloud will run the installation steps defined in `requirements.txt` automatically.
-   - Once the loading screen finishes, your app is live! You can share the public URL at the top of your browser with anyone.
+---
+*Developed with ❤️ as part of our academic commitment to exploring AI automation paradigms.*
