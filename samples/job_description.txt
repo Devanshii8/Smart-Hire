@@ -1,0 +1,22 @@
+Job Title: Senior Python Developer
+Company: TechFlow Solutions
+Location: Remote
+Experience: 5+ years
+Education: Bachelor's in Computer Science or related field
+
+Full Job Description:
+We are looking for a Senior Python Developer to join our engineering team. You will be responsible for designing and implementing scalable backend services, integrating AI models, and optimizing system performance.
+
+Requirements:
+- 5+ years of professional experience in Python development.
+- Strong knowledge of FastAPI or Django.
+- Experience with PostgreSQL and Redis.
+- Familiarity with AWS services (S3, Lambda, EC2).
+- Hands-on experience with LangChain or OpenAI APIs is highly preferred.
+- Solid understanding of Docker and containerization.
+- commitment to writing clean, maintainable, and well-tested code.
+
+What we offer:
+- Competitive salary and benefits.
+- Opportunity to work with cutting-edge AI technologies.
+- Flexible remote work environment.
